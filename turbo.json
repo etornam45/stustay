@@ -8,7 +8,16 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".svelte-kit/**", "dist/**", ".next/**", "build/**"]
+      "outputs": [".svelte-kit/**", "dist/**", ".next/**", "build/**", ".vercel/**"],
+      "env": [
+        "DB_URL",
+        "JWT_SECRET",
+        "CLOUDINARY_CLOUD_NAME",
+        "CLOUDINARY_API_KEY",
+        "CLOUDINARY_API_SECRET",
+        "CLOUDINARY_UPLOAD_PRESET",
+        "RESEND_API_KEY"
+      ]
     },
     "lint": {},
     "typecheck": {},
