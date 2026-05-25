@@ -54,7 +54,7 @@ export default function RegisterScreen() {
         university: role === 'student' ? university : undefined,
       })
       await setAuth(res.token, res.user)
-      router.replace('/(auth)/verify')
+      router.replace('/')
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : 'Registration failed')
     } finally {

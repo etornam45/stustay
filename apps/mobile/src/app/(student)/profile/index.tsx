@@ -39,7 +39,7 @@ export default function StudentProfileScreen() {
       const url = await uploadImageToCloudinary(result.assets[0].uri)
       await updateMe({ student_id_url: url })
       await refetch()
-      Alert.alert('Uploaded', 'Student ID submitted for verification')
+      Alert.alert('Uploaded', 'Student ID uploaded')
     } catch (e: unknown) {
       Alert.alert('Error', e instanceof Error ? e.message : 'Upload failed')
     } finally {
@@ -69,9 +69,7 @@ export default function StudentProfileScreen() {
         <Card>
           <Text style={styles.name}>{display?.full_name}</Text>
           <Text style={styles.email}>{display?.email}</Text>
-          <Text style={styles.role}>
-            Student · {display?.is_verified ? '✓ Verified' : 'Unverified'}
-          </Text>
+          <Text style={styles.role}>Student</Text>
           {profile?.student_profile?.university && (
             <Text style={styles.meta}>{profile.student_profile.university}</Text>
           )}

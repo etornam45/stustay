@@ -6,12 +6,7 @@ import { hashPassword } from '$lib/auth/password'
 import { signToken } from '$lib/auth/jwt'
 import { eq } from 'drizzle-orm'
 import { randomId } from '$lib/utils/randomId'
-import { sendVerificationEmail } from '$lib/email/sender'
 import { registerSchema } from '$lib/utils/validators'
-
-function generateOtp(): string {
-  return String(Math.floor(100000 + Math.random() * 900000))
-}
 
 export const POST: RequestHandler = async ({ request }) => {
   const body = await request.json()
@@ -29,8 +24,6 @@ export const POST: RequestHandler = async ({ request }) => {
 
   const id = randomId()
   const password_hash = hashPassword(password)
-  const verification_code = generateOtp()
-  const verification_expires = new Date(Date.now() + 15 * 60 * 1000)
 
   await db.insert(users).values({
     id,
@@ -39,11 +32,8 @@ export const POST: RequestHandler = async ({ request }) => {
     role,
     full_name,
     phone: phone || null,
-    verification_code,
-    verification_expires,
+    is_verified: true,
   })
-
-  await sendVerificationEmail(email, verification_code)
 
   if (role === 'student') {
     await db.insert(studentProfiles).values({
@@ -64,7 +54,7 @@ export const POST: RequestHandler = async ({ request }) => {
     full_name,
     phone: phone || null,
     avatar_url: null,
-    is_verified: false,
+    is_verified: true,
     created_at: new Date().toISOString(),
   }
 

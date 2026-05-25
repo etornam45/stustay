@@ -34,10 +34,6 @@ export function loginUser(data: LoginInput) {
   })
 }
 
-export function verifyEmail(code: string) {
-  return apiPost<{ message: string }>('/auth/verify-email', { code })
-}
-
 export function refreshToken() {
   return apiPost<{ token: string }>('/auth/refresh')
 }

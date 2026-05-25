@@ -17,10 +17,6 @@ export const loginSchema = z.object({
   password: z.string().min(1),
 })
 
-export const verifyEmailSchema = z.object({
-  code: z.string().length(6),
-})
-
 export const createListingSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),

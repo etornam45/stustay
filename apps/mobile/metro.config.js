@@ -3,6 +3,7 @@ const path = require('path')
 
 const projectRoot = __dirname
 const workspaceRoot = path.resolve(projectRoot, '../..')
+const sharedRoot = path.resolve(workspaceRoot, 'packages/shared')
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(projectRoot)
@@ -14,5 +15,8 @@ config.resolver.nodeModulesPaths = [
   path.resolve(workspaceRoot, 'node_modules'),
 ]
 config.resolver.disableHierarchicalLookup = true
+config.resolver.extraNodeModules = {
+  '@stustay/shared': sharedRoot,
+}
 
 module.exports = config

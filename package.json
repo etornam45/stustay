@@ -12,10 +12,12 @@
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "db:migrate": "turbo db:migrate",
+    "db:push": "bun run --filter @stustay/web db:push",
     "db:seed": "bun run --filter @stustay/web db:seed",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down",
     "mobile": "cd apps/mobile && expo start -c",
+    "mobile:build:android": "cd apps/mobile && eas build --platform android --profile preview",
     "mobile:ios": "bun run --filter @stustay/mobile ios",
     "web": "bun run --filter @stustay/web dev"
   },

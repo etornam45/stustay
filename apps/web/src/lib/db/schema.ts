@@ -8,7 +8,7 @@ export const users = pgTable('users', {
   full_name: text('full_name').notNull(),
   phone: text('phone'),
   avatar_url: text('avatar_url'),
-  is_verified: boolean('is_verified').notNull().default(false),
+  is_verified: boolean('is_verified').notNull().default(true),
   is_banned: boolean('is_banned').notNull().default(false),
   verification_code: text('verification_code'),
   verification_expires: timestamp('verification_expires'),

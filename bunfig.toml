@@ -1,0 +1,3 @@
+[install]
+# Flat node_modules so Metro / EAS can resolve expo and workspace packages
+linker = "hoisted"

@@ -18,14 +18,6 @@ export async function sendEmail(to: string, subject: string, html: string) {
   return { data, error }
 }
 
-export async function sendVerificationEmail(to: string, code: string) {
-  return sendEmail(
-    to,
-    'Verify your StuStay account',
-    `<p>Your verification code is: <strong>${code}</strong></p><p>It expires in 15 minutes.</p>`
-  )
-}
-
 export async function sendNewBookingEmail(
   to: string,
   listingTitle: string,

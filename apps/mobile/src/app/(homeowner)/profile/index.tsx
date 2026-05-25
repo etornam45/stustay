@@ -90,9 +90,7 @@ export default function HomeownerProfileScreen() {
         <Card>
           <Text style={styles.name}>{profile?.full_name || user?.full_name}</Text>
           <Text style={styles.email}>{profile?.email || user?.email}</Text>
-          <Text style={styles.role}>
-            Homeowner · {profile?.is_verified ? '✓ Verified' : 'Unverified'}
-          </Text>
+          <Text style={styles.role}>Homeowner</Text>
         </Card>
         <AccountSwitcher onRemoveAccount={handleRemoveAccount} />
         <View style={styles.form}>

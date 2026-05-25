@@ -9,7 +9,6 @@
     "forceConsistentCasingInFileNames": true
   },
   "references": [
-    { "path": "./apps/mobile" },
     { "path": "./apps/web" },
     { "path": "./packages/shared" }
   ],

@@ -8,10 +8,6 @@ export function navigateForUser() {
     router.replace('/(auth)/welcome')
     return
   }
-  if (!user.is_verified) {
-    router.replace('/(auth)/verify')
-    return
-  }
   if (user.role === 'homeowner') {
     router.replace('/(homeowner)/dashboard')
     return

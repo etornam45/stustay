@@ -8,10 +8,6 @@ export default function Index() {
     return <Redirect href="/(auth)/welcome" />
   }
 
-  if (!user.is_verified) {
-    return <Redirect href="/(auth)/verify" />
-  }
-
   if (user.role === 'homeowner') {
     return <Redirect href="/(homeowner)/dashboard" />
   }
