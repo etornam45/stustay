@@ -1,0 +1,16 @@
+# Dev Postgres for StuStay (port 5433 — avoids conflict with local Postgres on 5432)
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: stustay-postgres
+    environment:
+      POSTGRES_USER: stustay
+      POSTGRES_PASSWORD: stustay
+      POSTGRES_DB: stustay
+    ports:
+      - '5433:5432'
+    volumes:
+      - stustay_pg_data:/var/lib/postgresql/data
+
+volumes:
+  stustay_pg_data:

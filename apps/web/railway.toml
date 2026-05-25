@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd ../.. && bun install && cd apps/web && bun run build"
+
+[deploy]
+startCommand = "cd apps/web && node build/index.js"
+healthcheckPath = "/admin/login"
+restartPolicyType = "on_failure"

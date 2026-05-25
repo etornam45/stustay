@@ -1,0 +1,26 @@
+{
+  "name": "stustay",
+  "private": true,
+  "packageManager": "bun@1.3.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "db:migrate": "turbo db:migrate",
+    "db:seed": "bun run --filter @stustay/web db:seed",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "mobile": "cd apps/mobile && expo start -c",
+    "mobile:ios": "bun run --filter @stustay/mobile ios",
+    "web": "bun run --filter @stustay/web dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "typescript": "~6.0.3"
+  }
+}
